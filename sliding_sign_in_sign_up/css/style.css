@@ -1,0 +1,217 @@
+/* reset */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f6f5f7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h1{
+    font-weight: bold;
+    margin: 0;
+}
+
+p{
+    font-size: 14px;
+    font-weight: 100;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    margin: 20px 0 30px;
+}
+
+span{
+    font-size: 12px;
+}
+
+a{
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    margin: 15px 0;
+}
+
+/* container */
+.container{
+    background: #fff;
+    border-radius: 10px;
+    /* 两层阴影 */
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    position: relative;
+    overflow: hidden;
+    width: 768px;
+    max-width: 100%;
+    min-height: 480px;
+}
+
+.form-container form{
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    padding: 0 30px;
+}
+
+.social-container{
+    margin: 10px 0;
+}
+
+.social-container a{
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    /* 行内flex布局 */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    margin: 0 5px;
+}
+
+.form-container input{
+    background: #eee;
+    border: none;
+    padding: 12px 15px;
+    margin: 5px 0;
+    width: 100%;
+}
+
+button{
+    border-radius: 20px;
+    border: 1px solid #ff4b2b;
+    background: #ff4b2b;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    transition: transform 80ms ease-in;
+}
+
+button:active{
+    transform: scale(0.95);
+}
+
+/* 去除按钮的外边框 */
+button:focus{
+    outline: none;
+}
+
+button.ghost{
+    background: transparent;
+    border-color: #fff;
+}
+
+.form-container{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease-out;
+}
+
+/* 登录框 */
+.sign-in-container{
+    left: 0;
+    width: 50%;
+    z-index: 2;
+}
+
+/* 注册框 */
+.sign-up-container{
+    left: 0;
+    width: 50%;
+    opacity: 0;
+    z-index: 1;
+}
+
+.overlay-container{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.6s ease-in-out;
+    z-index: 100;
+}
+
+.overlay{
+    background: #ff416c;
+    background: linear-gradient(to right, #ff4b2b, #ff416c) no-repeat 0 0/cover;
+    color: #fff;
+    height: 100%;
+    width: 200%;
+    position: relative;
+    /* 让整个overlay的一般都隐藏在表单后面 */
+    left: -100%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+}
+
+.overlay-panel{
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 50%;
+    padding:0 40px;
+    text-align: center;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out
+}
+
+.overlay-right{
+    right: 0;
+    transform: translateX(0);
+}
+
+.overlay-left{
+    transform: translateX(-20%);
+}
+
+/* 动画 */
+
+/* 第一步 将登录页面移到右侧 */
+.container.right-panel-active .sign-in-container{
+    transform: translateX(100%);
+}
+
+/* 第二步 将遮罩移到左边 */
+.container.container.right-panel-active .overlay-container{
+    transform: translateX(-100%);
+}
+
+/* 第三步 将注册页面透明度设为1 且页面层级为5 同时移到右边 */
+.container.right-panel-active .sign-up-container{
+    opacity: 1;
+    z-index: 5;
+    transform: translateX(100%);
+}
+
+/* 第四步 将遮罩层移到右侧 */
+.container.right-panel-active .overlay{
+    transform: translateX(50%);
+}
+
+.container.right-panel-active .overlay-left{
+    transform: translateX(0);
+}
+
+.container.right-panel-active .overlay-right{
+    transform: translateX(20%);
+}
+
