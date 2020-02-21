@@ -26,6 +26,8 @@
         .tips {
             position: absolute;
             z-index: 99;
+            width: 200px;
+            height: 100px;
             background: rgba(0, 0, 0, 0.5);
             color: #fff;
         }
@@ -46,10 +48,10 @@
                 $('body').append($tips);
             }
 
-            $doc.on('click', function (e) {
+            $msg.on('click', function (e) {
                 var pageX = e.pageX,
                     pageY = e.pageY;
-
+                console.log(pageX, pageY)
                 $tips.text('文本文本文本').css({
                     top: pageY,
                     left: pageX
