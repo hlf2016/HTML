@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid</title>
+    <style>
+        .wrapper {
+            display: grid;
+            /* grid-template-columns: 1fr 1fr 1fr; */
+            /* 高级写法 用函数代替重复 */
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            /* minmax(100px, auto) 行高默认高度是100px 当其中内容大于100px 的时候，则会被内容撑开 */
+            grid-auto-rows: minmax(100px, auto);
+        }
+
+        .wrapper>div {
+            background: #eee;
+            padding: 1rem;
+        }
+
+        .wrapper>div:nth-child(odd) {
+            background: #ddd;
+        }
+
+        .nested {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            /* 行高设置 */
+            grid-auto-rows: 70px;
+        }
+
+        .nested>div {
+            border: 1px solid #333;
+            padding: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div>Lorem ipsum dolor sit amet.</div>
+        <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti earum eius laudantium maxime neque.
+            Quasi recusandae reiciendis fugit. Nam sapiente obcaecati consectetur saepe molestias voluptatibus nostrum
+            aliquid provident fugiat suscipit dolorum est natus esse, vitae debitis voluptatem inventore deserunt. Rerum
+            quos eaque iure perspiciatis? Illo cum magnam repellendus nemo voluptas!</div>
+        <div class="nested">
+            <div>Lorem</div>
+            <div>Lorem</div>
+            <div>Lorem</div>
+            <div>Lorem</div>
+            <div>Lorem</div>
+            <div>Lorem</div>
+        </div>
+        <div>Lorem ipsum dolor sit amet.</div>
+        <div>Lorem ipsum dolor sit amet.</div>
+        <div>Lorem ipsum dolor sit amet.</div>
+        <div>Lorem ipsum dolor sit amet.</div>
+        <div>Lorem ipsum dolor sit amet.</div>
+    </div>
+</body>
+
+</html>
