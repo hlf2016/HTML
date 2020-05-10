@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Box 基础</title>
+    <style>
+        .container {
+            display: flex;
+            /* 元素横向排列 */
+            /* flex-direction: row; */
+            /* 元素纵向排列 */
+            /* flex-direction: column; */
+            /* 超出换行显示 */
+            /* flex-wrap: wrap; */
+
+            /* flex-flow = flex-direction + flex-wrap */
+            flex-flow: row wrap;
+        }
+
+        .item {
+            background: #f4f4f4;
+            border: 1px solid #ccc;
+            padding: 1rem;
+            margin: 0.75rem;
+            text-align: center;
+            /*flex 相当于对空间进行分配 在横向布局 也就是 flex-direction: row; 弹性盒子的子元素中使用 flex:1 会拉伸铺满 */
+            flex: 1;
+        }
+
+        .item:first-child {
+            /* flex 就相当于对空间的一种分配 跟第二个 item 比例为 4:1 */
+            flex: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item">
+            <h3>item 1</h3>
+        </div>
+        <div class="item">
+            <h3>item 2</h3>
+        </div>
+        <div class="item">
+            <h3>item 1</h3>
+        </div>
+        <div class="item">
+            <h3>item 2</h3>
+        </div>
+        <div class="item">
+            <h3>item 1</h3>
+        </div>
+        <div class="item">
+            <h3>item 2</h3>
+        </div>
+        <div class="item">
+            <h3>item 1</h3>
+        </div>
+        <div class="item">
+            <h3>item 2</h3>
+        </div>
+        <div class="item">
+            <h3>item 1</h3>
+        </div>
+        <div class="item">
+            <h3>item 2</h3>
+        </div>
+        <div class="item">
+            <h3>item 1</h3>
+        </div>
+        <div class="item">
+            <h3>item 2</h3>
+        </div>
+        <div class="item">
+            <h3>item 1</h3>
+        </div>
+        <div class="item">
+            <h3>item 2</h3>
+        </div>
+    </div>
+</body>
+
+</html>
